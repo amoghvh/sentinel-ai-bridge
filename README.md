@@ -5,7 +5,6 @@ Sentinel AI Bridge
 Sentinel AI Bridge is a high-performance, security-first privacy middleware and proxy gateway designed to sit between enterprise applications and upstream Large Language Model (LLM) providers (Anthropic, Google, xAI).
 
 The platform intercepts incoming prompts and outgoing completions to guarantee zero-leakage of Personally Identifiable Information (PII) and maintain a cryptographic, tamper-evident audit log for compliance governance (GDPR, HIPAA, and SOC2).
-🏗️ Architectural Topology
 
 
 <img width="421" height="638" alt="image" src="https://github.com/user-attachments/assets/9ece1518-41b2-4a5c-8fd7-1ae2dbd47ef3" />

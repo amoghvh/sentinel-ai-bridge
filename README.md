@@ -7,42 +7,9 @@ Sentinel AI Bridge is a high-performance, security-first privacy middleware and 
 The platform intercepts incoming prompts and outgoing completions to guarantee zero-leakage of Personally Identifiable Information (PII) and maintain a cryptographic, tamper-evident audit log for compliance governance (GDPR, HIPAA, and SOC2).
 🏗️ Architectural Topology
 
-[ Client Application ] 
-          │
-     (Raw Prompt with Sensitive Data / PII)
-          ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│  SENTINEL AI BRIDGE (Middleware Proxy Layer)                           │
-│                                                                        │
-│  1. Ingestion Layer  ──> FastAPI Async Gateway                         │
-│                                                                        │
-│  2. Inspection Pipeline (Regex + Named Entity Recognition)            │
-│     [Input Content] ──> [Deterministic Scanner] ──> [SpaCy/Presidio]   │
-│                                                                        │
-│  3. Redaction Engine  ──> Replaces PII with Salted Cryptographic Tokens │
-│                          (e.g., "John Doe" ──> "[REDACTED_NAME_8a1c]") │
-│                                                                        │
-│  4. Local Secure State ──> Stores Token-to-Value Mapping in Redis Cache│
-└────────────────────────────────────────────────────────────────────────┘
-          │
-   (Anonymized Prompt)
-          ▼
-[ Upstream Cloud APIs ] ──► (Claude / Gemini / Grok Engine Processing)
-          │
-   (Masked Model Response)
-          ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│  SENTINEL AI BRIDGE (Return Processing Layer)                          │
-│                                                                        │
-│  5. Re-identification Engine ──► Hydrates Tokens from Redis Cache     │
-│                                                                        │
-│  6. Compliance Audit Logger  ──► Emits Cryptographically Signed JSONL  │
-│                                  Payloads to Sealed Local Log Storage  │
-└────────────────────────────────────────────────────────────────────────┘
-          │
-    (Unmasked Response)
-          ▼
-[ Client Application ]
+
+<img width="421" height="638" alt="image" src="https://github.com/user-attachments/assets/9ece1518-41b2-4a5c-8fd7-1ae2dbd47ef3" />
+
 
 🛠️ Tech Stack & Production Primaries
 

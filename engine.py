@@ -34,8 +34,7 @@ class SentinelEngine:
             "audit_id": str(uuid.uuid4()),
             "timestamp": datetime.now().isoformat()
         }
-
-# For testing locally
+## local testing
 if __name__ == "__main__":
     engine = SentinelEngine()
     print(engine.scan_and_redact("My name is Amogh and my email is test@example.com"))

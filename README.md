@@ -42,6 +42,7 @@ Instead of dropping data destructively, Sentinel replaces entities with determin
 
 Every interaction generates a immutable audit line in a secure JSONL storage schema. Log files are signed sequentially using an externalized cryptographic key to guarantee logs cannot be altered retroactively by unauthorized system actors.
 
+
 📉 Enterprise Production Constraints
 
     Sub-Millisecond Latency Overhead: Security proxies cannot act as choke points. By offloading regex compilations to pre-cached C-bindings and executing local NER pipelines asynchronously alongside memory mapped token mapping, Sentinel limits total processing overhead to less than 8ms per request transaction.
